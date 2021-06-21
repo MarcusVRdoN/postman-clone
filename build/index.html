@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module" src="main.js" defer></script>
+<link rel="stylesheet" href="/main.css"></head>
+<body>
+  <div class="container p-4">
+    <div class="row">
+      <form data-form>
+        <div class="input-group mb-4">
+          <select class="form-select flex-grow-0 w-auto" data-method>
+            <option value="GET" selected>GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="PATCH">PATCH</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+          <input class="form-control" type="url" placeholder="http://www.example.com" data-url required>
+          <button class="btn btn-primary">Send</button>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button id="query-params-tab" class="nav-link active" type="button" data-bs-toggle="tab" data-bs-target="#query-params" aria-controls="query-params" aria-selected="true" role="tab">Query Params</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="headers-tab" class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#headers" aria-controls="headers" aria-selected="false" role="tab">Headers</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="json-tab" class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#json" aria-controls="json" aria-selected="false" role="tab">JSON</button>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3 border border-top-0">
+          <div id="query-params" class="tab-pane fade show active" aria-labelledby="query-params-tab" role="tabpanel">
+            <div data-query-params></div>
+            <button class="mt-2 btn btn-outline-success" type="button" data-add-query-param>Add</button>
+          </div>
+          <div id="headers" class="tab-pane fade" aria-labelledby="headers-tab" role="tabpanel">
+            <div data-headers></div>
+            <button class="mt-2 btn btn-outline-success" type="button" data-add-header>Add</button>
+          </div>
+          <div id="json" class="tab-pane fade" aria-labelledby="json-tab" role="tabpanel">
+            <div class="overflow-auto" data-json style="max-height: 200px;"></div>
+          </div>
+        </div>
+      </form>
+
+      <section class="mt-5 d-none" data-response-section>
+        <h3>Response</h3>
+
+        <div class="d-flex my-2">
+          <div class="me-3">
+            <small><strong>Status:</strong> <span data-status></span></small>
+          </div>
+          <div class="me-3">
+            <small><strong>Time:</strong> <span data-time></span>ms</small>
+          </div>
+          <div class="me-3">
+            <small><strong>Size:</strong> <span data-size></span></small>
+          </div>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button id="body-tab" class="nav-link active" type="button" data-bs-toggle="tab" data-bs-target="#body" aria-controls="body" aria-selected="true" role="tab">Body</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="response-headers-tab" class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#response-headers" aria-controls="response-headers" aria-selected="false" role="tab">Headers</button>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3 border border-top-0">
+          <div id="body" class="tab-pane fade show active" aria-labelledby="body-tab" role="tabpanel">
+            <div class="overflow-auto" data-response-body style="max-height: 200px;"></div>
+          </div>
+          <div id="response-headers" class="tab-pane fade" aria-labelledby="response-headers-tab" role="tabpanel">
+            <div class="d-grid" data-response-headers style="grid-template-columns: auto 1fr; gap: 1rem 3rem;"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <template data-key-value-template>
+    <div class="input-group my-2" data-key-value>
+      <input class="form-control" placeholder="Key" data-key>
+      <input class="form-control" placeholder="Value" data-value>
+      <button class="btn btn-outline-danger" type="button" data-remove>Remove</button>
+    </div>
+  </template>
+
+
+</body></html>
